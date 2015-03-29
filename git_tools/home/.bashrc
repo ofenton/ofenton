@@ -9,7 +9,7 @@ fi
 # ENV VARIABLES #
 #################
 export GIT_HOME=$HOME/git
-export PATH="$PATH:$GIT_HOME/Native-Ads/git-tools/home/bin:/opt/instantclient_11_2"
+export PATH="$PATH:$GIT_HOME/ofenton/ofenton/git-tools/home/bin"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 
