@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Initial setup for git
+#git init
+
+# Set email address
+git config --global user.email "oliver.fenton@gmail.com"
+# And verify
+git config --global user.email
+
+# Set
+git config --global user.name "ofenton"
+# And verify
+git config --global user.name

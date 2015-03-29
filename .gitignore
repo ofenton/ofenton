@@ -5,7 +5,7 @@
 .checkstyle
 
 # Intellij
-.idea/
+*/.idea/
 *.iml
 *.iws
 
@@ -18,5 +18,3 @@ target/
 
 test-output/
 *.log
-
-out
