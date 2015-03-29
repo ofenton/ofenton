@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Formats the git log in a more helpful way
+git_log () {
+    if [ $# -ge 1 ];
+    then
+      local SINCE=$1
+    else
+      local SINCE="2.weeks"
+    fi
+
+    git log --pretty=format:"%H|%ad|%an|%s" --since=$SINCE --date=raw \
+      | awk -F '|' 'BEGIN{OFS="\t"} \
+              {cmd="date -r "substr($2, 0, 10)" \"+%Y%m%d:%H%M\" | tr -d \"\n\""; \
+               while ( ( cmd | getline result ) > 0 ) { $2=result""substr($2,11)} close(cmd); \
+               $3=sprintf("%-20s", $3); \
+               print $0 \
+              }'
+}
+
+git_log

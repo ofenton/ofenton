@@ -1,0 +1,28 @@
+#!/bin/bash
+
+git_update () {
+	local GREEN="\033[0;32m"
+	local RED="\033[0;31m"
+	local NORMAL_COLOUR="\033[0m"
+	local GIT_REMOTE=$(git config --list | grep branch.master.remote | cut -d'=' -f2)
+	local GIT_BRANCH=$(git branch | grep -e "*" | awk '{print $2}')
+	echo -ne "$GREEN" >&2
+	echo -e "Pulling [ff-only] from $GIT_REMOTE/$GIT_BRANCH $NORMAL_COLOUR" >&2
+	git pull --ff-only $GIT_REMOTE $GIT_BRANCH
+	if [[ $? -ne 0 ]]
+	then
+		echo -ne "$RED" >&2
+		echo -e "Cannot fast-forward. Doing a rebase instead... $NORMAL_COLOUR" >&2
+		git rebase -m -p $GIT_REMOTE/$GIT_BRANCH
+		if [[ $? -ne 0 ]]
+		then
+			echo -ne "$RED" >&2
+			echo -e "Time to do some merging and conflict solving... $NORMAL_COLOUR" >&2
+			return
+		fi
+	fi
+	echo -ne "$GREEN" >&2
+	echo -e "Up-to-date! $NORMAL_COLOUR" >&2
+}
+
+git_update
