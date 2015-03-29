@@ -5,19 +5,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * Created on 3/27/15.
+ */
 public class Main {
-
-
-    public static int hammingWeight(int n) {
-        int count = 0;
-        for (int i = 0; i < 32; i++) {
-            if (n % 2 == 1) {
-                count++;
-            }
-            n = n >> 1;
-        }
-        return count;
-    }
 
     public static List<String> findRepeatedDnaSequences(String s) {
         HashSet<String> duplicates = new HashSet();
@@ -426,10 +417,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        for (int n = 0; n < 129; n++) {
-            //System.out.println(String.format("N=%d, Weight=%d", n, hammingWeight(n)));
-        }
-
         //System.out.println(findRepeatedDnaSequences("AAAAAAAAAAA"));
 
 
@@ -465,8 +452,6 @@ public class Main {
 //                ,{'.','.','.','.','.','.','.','.','6'}
 //                ,{'.','.','.','2','7','5','9','.','.'}};
 //        printSudoku(board);
-
-        new MaxPointsOnALine();
 
     }
 }

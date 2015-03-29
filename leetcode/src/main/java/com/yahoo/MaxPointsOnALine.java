@@ -109,4 +109,8 @@ public class MaxPointsOnALine {
 
         return maxLength;
     }
+
+    public static void main(String[] args) {
+        new MaxPointsOnALine();
+    }
 }
