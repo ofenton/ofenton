@@ -253,56 +253,6 @@ public class Main {
         return result;
     }
 
-    static int[] x = new int[8];
-    static List<String[]> result = new ArrayList();
-
-    public static List<String[]> solveNQueens(int n) {
-        placeNQueens(0, n);
-        return result;
-    }
-
-    private static boolean canPlaceQueen(int r, int c) {
-        for (int i = 0; i < r; i++) {
-            if (x[i] == c) return false;
-            if ((i - r) == (x[i] - c) ||(i - r) == (c - x[i])) return false;
-        }
-        return true;
-    }
-
-    private static String getRowString(int r, int n) {
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < n; i++) {
-            if (r == i) sb.append("Q");
-            else sb.append(".");
-        }
-        return sb.toString();
-    }
-
-    private static void placeNQueens(int r, int n) {
-        for (int c = 0; c < n; c++) {
-
-            System.out.println("S:" + c + ":" + r + ":" + n + ":" + canPlaceQueen(r, c));
-
-            if (canPlaceQueen(r, c)) {
-                x[r] = c;
-
-                // END?
-                if (r == n - 1) {
-                    // int to String
-                    System.out.println("ANSWER");
-                    String[] out = new String[n];
-                    for (int i = 0; i < n; i++) {
-                        out[i] = getRowString(x[i], n);
-                        System.out.println("ROW:" + out[i]);
-                    }
-                    result.add(out);
-                } else {
-                    placeNQueens(r + 1, n);
-                }
-
-            }
-        }
-    }
 
     public static int uniquePaths(int m, int n) {
         if (m == 1 && n == 1) return 1;
@@ -316,103 +266,6 @@ public class Main {
         }
 
         return total;
-    }
-
-    private static String sudokoToString(char[][] board) {
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < board.length; i++) {
-            sb.append("{");
-            for (int j = 0; j < board[i].length; j++) {
-                if (j != 0 ) sb.append(",");
-                sb.append(board[i][j]);
-            }
-            sb.append("},");
-        }
-        return sb.toString();
-    }
-
-    public static void printSudoku(char[][] board) {
-        System.out.println("START: " + sudokoToString(board));
-        solveSudoku(board);
-        System.out.println("END  : " + sudokoToString(board));
-    }
-
-    public static void solveSudoku(char[][] board) {
-        solveSudoku(board, 0, 0);
-    }
-
-    private static boolean solveSudoku(char[][] board, int x, int y) {
-        if (board[x][y] != '.') {
-
-            if ((x == 8) && (y == 8)) return true;
-
-            // MORE WORK
-            boolean complete = false;
-            if (x == board.length-1 && y < board.length-1) {
-                complete = solveSudoku(board, 0, y+1);
-            } else if (x < board.length-1) {
-                complete = solveSudoku(board, x+1, y);
-            }
-
-            // SUCCESS
-            if (complete) return true;
-        }
-
-        if (board[x][y] == '.') {
-            for (int num = 1; num <= 9; num++) {
-                board[x][y] = Character.forDigit(num, 10);
-                if (isValid(board, x, y)) {
-
-                    if ((x == 8) && (y == 8)) return true;
-
-                    // MORE WORK
-                    boolean complete = false;
-                    if (x == board.length-1 && y < board.length-1) {
-                        complete = solveSudoku(board, 0, y+1);
-                    } else if (x < board.length-1) {
-                        complete = solveSudoku(board, x+1, y);
-                    }
-
-                    // SUCCESS
-                    if (complete) return true;
-
-                }
-                board[x][y] = '.';
-            }
-        }
-
-        // No solution
-        return false;
-    }
-
-    private static boolean isValid(char[][] board, int x, int y) {
-
-        // checkRow(board, x, y);
-        for (int i = 0; i < board.length; i++) {
-            if (i == x) continue;
-            if (board[x][y] == board[i][y]) return false;
-        }
-
-        // checkColumn(board, x, y);
-        for (int i = 0; i < board.length; i++) {
-            if (i == y) continue;
-            if (board[x][y] == board[x][i]) return false;
-        }
-
-        // checkBox(board, x, y);
-        // x = 0, 1, 2 | 3, 4, 5 | 6, 7, 8 => x % 3
-        // y = 0, 1, 2 | 3, 4, 5 | 6, 7, 8
-        int xAbs = (int) x / 3; // 0, 1, 2
-        int yAbs = (int) y / 3; // 0, 1, 2
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (x == (xAbs * 3 + i) && y == (yAbs * 3 + j)) continue;
-                if (board[xAbs * 3 + i][yAbs * 3 + j] == board[x][y]) return false;
-            }
-        }
-
-        return true;
     }
 
     public static void main(String[] args) {
@@ -440,18 +293,6 @@ public class Main {
         //solveNQueens(4);
 
         //System.out.println(uniquePaths(23, 12));
-
-//        char[][] board = {
-//                {'.', '.','9','7','4','8','.','.','.'}
-//                ,{'7','.','.','.','.','.','.','.','.'}
-//                ,{'.','2','.','1','.','9','.','.','.'}
-//                ,{'.','.','7','.','.','.','2','4','.'}
-//                ,{'.','6','4','.','1','.','5','9','.'}
-//                ,{'.','9','8','.','.','.','3','.','.'}
-//                ,{'.','.','.','8','.','3','.','2','.'}
-//                ,{'.','.','.','.','.','.','.','.','6'}
-//                ,{'.','.','.','2','7','5','9','.','.'}};
-//        printSudoku(board);
 
     }
 }

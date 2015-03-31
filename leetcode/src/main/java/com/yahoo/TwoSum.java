@@ -24,10 +24,6 @@ public class TwoSum {
     public int[] twoSum(int[] numbers, int target) {
         Map<Integer, Integer> numMap = new HashMap();
 
-//        for (int i = 0; i < numbers.length; i++) {
-//            numMap.put(target - numbers[i], i);
-//        }
-
         for (int i = 0; i < numbers.length; i++) {
             if (numMap.containsKey(numbers[i]) && i != numMap.get(numbers[i])) {
                 int[] result = {i, numMap.get(numbers[i])};
