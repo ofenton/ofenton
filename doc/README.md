@@ -1,7 +1,5 @@
----
-title: "README"
-layout: article
----
+README
+======
 
 ## Some interesting blogs
 
