@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Specify the hostname as an argumenti, e.g. aws_connect ec2-52-0-96-38.compute-1.amazonaws.com"
+  exit 1
+fi
+
+HOST_DNS=$1
+echo "Hostname = "${HOST_DNS}
+ssh -i ~/.ssh/ofenton-key-pair-useast.pem ec2-user@${HOST_DNS}
