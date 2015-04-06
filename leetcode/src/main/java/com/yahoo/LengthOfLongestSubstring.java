@@ -2,6 +2,7 @@ package com.yahoo;
 
 /**
  * Created on 3/29/15.
+ * Where substring consists of unique characters
  */
 public class LengthOfLongestSubstring {
 
