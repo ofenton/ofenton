@@ -10,26 +10,6 @@ import java.util.Stack;
  */
 public class Main {
 
-    public static List<String> findRepeatedDnaSequences(String s) {
-        HashSet<String> duplicates = new HashSet();
-
-        if (s.length() < 10) { return new ArrayList<String>(); }
-
-        HashSet<String> seen = new HashSet();
-        for (int i = 0; i < s.length() - 9; i++) {
-            String testString = s.substring(i, i+10);
-            if (seen.contains(testString)) {
-                duplicates.add(testString);
-            } else {
-                seen.add(testString);
-            }
-        }
-
-        ArrayList out = new ArrayList<String>();
-        out.addAll(duplicates);
-        return out;
-    }
-
     public static class TreeNode {
         int val;
         TreeNode left;
@@ -269,8 +249,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
-        //System.out.println(findRepeatedDnaSequences("AAAAAAAAAAA"));
 
 
 //        TreeNode tnRoot = new TreeNode(1);
