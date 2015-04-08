@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PEM_FILE=~/.ssh/ofenton-uswest2-key-pair.pem
+MASTER_DNS=ec2-54-149-243-235.us-west-2.compute.amazonaws.com
+LOCAL_PORT=8157
+REMOTE_PORT=8888
+
+echo "use Hue by going to http://localhost:8157/"
+ssh -i ${PEM_FILE} -N -L ${LOCAL_PORT}:${MASTER_DNS}:${REMOTE_PORT} hadoop@${MASTER_DNS}
+

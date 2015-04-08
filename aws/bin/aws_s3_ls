@@ -1,0 +1,8 @@
+#!/bin/bash
+DIR=$1
+
+# NOTE: we could prefix with s3://...
+aws s3 ls ${DIR}
+
+# For more complete information
+#aws s3api list-buckets
