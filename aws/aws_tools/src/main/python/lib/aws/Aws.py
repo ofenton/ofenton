@@ -70,7 +70,8 @@ def main(argv):
         sys.exit(1)
 
     aws = Aws(properties_file)
-    
+
+    ### TEST TEST TEST ###
     aws.getS3().list_s3_locations()
     try:
         aws.getS3().create_bucket("test")

@@ -3,6 +3,7 @@ package com.example.hello;
 import com.example.hello.resources.CtoFResource;
 import com.example.hello.resources.FtoCResource;
 import com.example.hello.resources.HelloResource;
+import com.example.hello.resources.TemperatureResource;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -33,5 +34,6 @@ public class HelloApplication extends Application<HelloConfiguration> {
         environment.jersey().register(new HelloResource());
         environment.jersey().register(new CtoFResource());
         environment.jersey().register(new FtoCResource());
+        environment.jersey().register(new TemperatureResource());
     }
 }
