@@ -12,9 +12,7 @@ public class HammingWeight {
     public static int hammingWeight(int n) {
         int count = 0;
         for (int i = 0; i < NUM_BITS_IN_AN_INT; i++) {
-            if (n % 2 == 1) {
-                count++;
-            }
+            count += n % 2;
             n = n >> 1;
         }
         return count;

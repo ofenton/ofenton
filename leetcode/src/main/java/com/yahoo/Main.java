@@ -272,5 +272,16 @@ public class Main {
 
         //System.out.println(uniquePaths(23, 12));
 
+        System.out.println("1/2=" + 1/2);
+        System.out.println("Floor=" + Math.floor(-1/2));
+        System.out.println("1/2 + 1/2=" + 1/2 + 1/2);
+
+        String a = new String("hello");
+        String b = new String("hello");
+        System.out.println(a == b ? "same" : "different");
+
+        String c = "hello";
+        String d = "hello";
+        System.out.println(c == d ? "same" : "different");
     }
 }
