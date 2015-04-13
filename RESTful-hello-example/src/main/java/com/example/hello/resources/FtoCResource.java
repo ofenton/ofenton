@@ -30,10 +30,17 @@ public class FtoCResource {
         return Response.status(200).entity(result).build();
     }
 
-    @Path("{f}")
+    @Path("{s}")
     @GET
     @Produces("application/json")
-    public Response convertFtoCfromInput(@PathParam("f") float f) throws JSONException {
+    public Response convertFtoCfromInput(@PathParam("s") String s) throws JSONException {
+
+        Float f = null;
+        try {
+            f = Float.parseFloat(s);
+        } catch (NumberFormatException e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity("Request must be a number").build();
+        }
 
         JSONObject jsonObject = new JSONObject();
         float celsius;
