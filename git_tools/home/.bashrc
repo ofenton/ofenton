@@ -11,7 +11,7 @@ fi
 export GIT_HOME=$HOME/git
 export M2_HOME=$HOME/opt/apache-maven-3.3.3
 
-export PATH="$PATH:$GIT_HOME/ofenton/ofenton/git-tools/bin"
+export PATH="$PATH:$GIT_HOME/ofenton/ofenton/git_tools/bin"
 export PATH="$PATH:$M2_HOME/bin/"
 
 
