@@ -9,8 +9,10 @@ fi
 # ENV VARIABLES #
 #################
 export GIT_HOME=$HOME/git
-export PATH="$PATH:$GIT_HOME/ofenton/ofenton/git-tools/home/bin"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export M2_HOME=$HOME/opt/apache-maven-3.3.3
+
+export PATH="$PATH:$GIT_HOME/ofenton/ofenton/git-tools/bin"
+export PATH="$PATH:$M2_HOME/bin/"
 
 
 ###########
@@ -21,8 +23,6 @@ lcd ()
     cd "$1" && ls -al
 }
 
-
-alias mvn_coverage='mvn clover2:setup test clover2:aggregate clover2:clover'
 
 ##################
 # COMMAND PROMPT #
