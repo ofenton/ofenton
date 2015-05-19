@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Displays a breakdown of time taken for different stages of accessing a website
+if [ "$#" -ne 1 ]; then
+  echo "usage: "`basename "$0"`" [url]"
+  exit
+fi
+
+curl -w "@${GIT_HOME}/ofenton/ofenton/git_tools/conf/curl-timing.cfg" -o /dev/null -s "${1}"
