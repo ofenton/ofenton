@@ -16,5 +16,9 @@
 log/
 target/
 
+# Python
+.ipynb_checkpoints/
+
+# General
 test-output/
 *.log
