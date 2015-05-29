@@ -23,6 +23,10 @@ lcd ()
     cd "$1" && ls -al
 }
 
+######################################
+# Enable Python virtual environments #
+######################################
+source /usr/local/bin/virtualenvwrapper.sh
 
 ##################
 # COMMAND PROMPT #
