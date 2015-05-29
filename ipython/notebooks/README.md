@@ -10,3 +10,6 @@ OR
 
 * In a Browser
 ipython notebook test_basemap.ipynb
+
+---
+With thanks to [sensitivecities](http://sensitivecities.com/so-youd-like-to-make-a-map-using-python-EN.html#.VWOirVnBzRb) for the tutorial
