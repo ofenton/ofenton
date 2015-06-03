@@ -9,9 +9,14 @@ fi
 # ENV VARIABLES #
 #################
 export GIT_HOME=$HOME/git
+export HADOOP_HOME=$HOME//opt/hadoop-2.7.0
 export M2_HOME=$HOME/opt/apache-maven-3.3.3
 
+# NOTE: Mac Specific
+export JAVA_HOME=`/usr/libexec/java_home`
+
 export PATH="$PATH:$GIT_HOME/ofenton/ofenton/git_tools/bin"
+export PATH="$PATH:$HADOOP_HOME/bin/"
 export PATH="$PATH:$M2_HOME/bin/"
 
 
