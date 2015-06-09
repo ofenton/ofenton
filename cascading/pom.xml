@@ -39,6 +39,7 @@
             <version>${cascading.version}</version>
         </dependency>
 
+        <!-- TEST TEST TEST TEST TEST -->
         <dependency>
             <groupId>cascading</groupId>
             <artifactId>cascading-platform</artifactId>
@@ -46,7 +47,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- TEST TEST TEST TEST TEST -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
