@@ -1,0 +1,19 @@
+digraph G {
+  1 [label = "Every('wc')[Count[decl:[{1}:'count' | Long]]]"];
+  2 [label = "Hfs['TextDelimited[['token', 'count']]']['../../../target/output/wc']"];
+  3 [label = "GroupBy('wc')[by:['token']]"];
+  4 [label = "Each('wc')[Identity[decl:[{1}:'token']]]"];
+  5 [label = "Each('token')[ScrubFunction[decl:[{2}:'doc_id', 'token']][args:2]]"];
+  6 [label = "Each('token')[RegexSplitGenerator[decl:[{1}:'token']][args:1]]"];
+  7 [label = "Hfs['TextDelimited[['doc_id', 'text']]']['../../../src/test/resources/data/rain.txt']"];
+  8 [label = "[head]\n2.7.0\nHadoop:\napp id: 201629AB8C8D400AA714810F5809CB84"];
+  9 [label = "[tail]"];
+  1 -> 2 [label = "[{2}:'token', 'count']\n[{1}:'token']"];
+  7 -> 6 [label = "[{2}:'doc_id', 'text']\n[{2}:'doc_id', 'text']"];
+  6 -> 5 [label = "[{2}:'doc_id', 'token']\n[{2}:'doc_id', 'token']"];
+  4 -> 3 [label = "[{1}:'token']\n[{1}:'token']"];
+  3 -> 1 [label = "wc[{1}:'token']\n[{1}:'token']"];
+  8 -> 7 [label = ""];
+  2 -> 9 [label = "[{2}:'token', 'count']\n[{2}:'token', 'count']"];
+  5 -> 4 [label = "[{2}:'doc_id', 'token']\n[{2}:'doc_id', 'token']"];
+}
