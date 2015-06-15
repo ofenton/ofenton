@@ -9,3 +9,4 @@ for FILE in "${FILES[@]}"; do
     fi
 done
 
+source ${HOME}/.bash_profile
