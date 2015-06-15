@@ -6,4 +6,4 @@ if [ "$#" -ne 1 ]; then
   exit
 fi
 
-curl -w "@${GIT_HOME}/ofenton/ofenton/git_tools/conf/curl-timing.cfg" -o /dev/null -s "${1}"
+curl -w "@${GIT_HOME}/ofenton/ofenton/tools/conf/curl-timing.cfg" -o /dev/null -s "${1}"
