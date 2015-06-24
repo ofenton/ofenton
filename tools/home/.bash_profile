@@ -16,7 +16,7 @@ export M2_HOME=$HOME/opt/apache-maven-3.3.3
 export JAVA_HOME=`/usr/libexec/java_home`
 
 export PATH="$PATH:$HOME/git/hotels/hdw/tools/bin"
-export PATH="$PATH:$GIT_HOME/public/ofenton/ofenton/tools/bin"
+export PATH="$PATH:$GIT_HOME/github/ofenton/ofenton/tools/bin"
 export PATH="$PATH:$HADOOP_HOME/bin/"
 export PATH="$PATH:$M2_HOME/bin/"
 

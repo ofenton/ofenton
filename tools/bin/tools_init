@@ -3,7 +3,7 @@
 FILES=( ".bash_profile" ".vimrc" )
 for FILE in "${FILES[@]}"; do
     if [ ! -f ${HOME}/${FILE} ]; then
-        ln -sv ${HOME}/git/public/ofenton/ofenton/tools/home/${FILE} ${HOME}/${FILE}
+        ln -sv ${HOME}/git/github/ofenton/ofenton/tools/home/${FILE} ${HOME}/${FILE}
     else
         echo ${HOME}"/.bash_profile already exists. No action taken"
     fi
