@@ -29,6 +29,12 @@ lcd ()
     cd "$1" && ls -al
 }
 
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ll='ls -alF'
+
 ##############################################################################################
 # Python                                                                                     #
 # Some Instructions: http://hackercodex.com/guide/python-development-environment-on-mac-osx/ #
@@ -42,6 +48,12 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
 source /usr/local/bin/virtualenvwrapper.sh
+
+###############
+# Docker      #
+###############
+#export DOCKER_HOST=tcp://localhost:4243
+
 
 ##################
 # COMMAND PROMPT #
