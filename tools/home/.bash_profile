@@ -12,8 +12,15 @@ export GIT_HOME=$HOME/git
 export HADOOP_HOME=$HOME/opt/hadoop-2.7.0
 export M2_HOME=$HOME/opt/apache-maven-3.3.3
 
-# NOTE: Mac Specific
-export JAVA_HOME=`/usr/libexec/java_home`
+OS=`uname -s`
+if [ ${OS} == "Darwin" ]; then
+  export JAVA_HOME=`/usr/libexec/java_home`
+elif [ ${OS} == "Linux" ]; then
+  JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+  export JAVA_HOME
+else
+  echo "UNKNOWN OPERATING SYSTEM"
+fi
 
 export PATH="$PATH:$HOME/git/hotels/hdw/tools/bin"
 export PATH="$PATH:$GIT_HOME/github/ofenton/ofenton/tools/bin"
@@ -46,14 +53,12 @@ export PIP_REQUIRE_VIRTUALENV=true
 export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/dev
 source /usr/local/bin/virtualenvwrapper.sh
 
 ###############
 # Docker      #
 ###############
 #export DOCKER_HOST=tcp://localhost:4243
-
 
 ##################
 # COMMAND PROMPT #
