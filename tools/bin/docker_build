@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ] || ! [ -d "$1" ]; then
+  echo "usage: "$0" [path_to_Dockerfile]"
+  exit
+fi
+
+# Build name = 'ofenton/[last_bit_of_path]'
+NAME=`echo $1 | awk -F/ '{if ($NF=="") {n=$(NF-1)} else {n=$NF}} END {print n}'`
+
+if [ ${NAME} == "" ]; then
+  echo "usage: "$0" [path_to_Dockerfile]"
+  exit
+fi
+
+echo "Creating docker build for "${NAME}
+docker build -t ofenton/${NAME} ${NAME}
+
+echo "Cleaning up any unreferenced containers"
+docker_clean_untagged

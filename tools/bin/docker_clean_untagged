@@ -1,0 +1,10 @@
+#!/bin/sh
+
+docker images | awk '
+{
+  if ($1=="<none>" && $2=="<none>") { 
+    print "removing unknown docker-image with id "$3; 
+    system("docker rmi "$3)
+  }
+}
+'
