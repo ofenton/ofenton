@@ -22,7 +22,7 @@ else
   echo "UNKNOWN OPERATING SYSTEM"
 fi
 
-export PATH="$PATH:$HOME/git/hotels/hdw/tools/bin"
+export PATH="$PATH:$HOME/git/stash/hdw/tools/bin"
 export PATH="$PATH:$GIT_HOME/github/ofenton/ofenton/tools/bin"
 export PATH="$PATH:$HADOOP_HOME/bin/"
 export PATH="$PATH:$M2_HOME/bin/"
