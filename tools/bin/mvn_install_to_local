@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#FROM: http://stackoverflow.com/questions/4955635/how-to-add-local-jar-files-in-maven-project
+mvn install:install-file
+-Dfile=<path-to-file>
+-DgroupId=<group-id>
+-DartifactId=<artifact-id>
+-Dversion=<version>
+-Dpackaging=<packaging>
+-DgeneratePom=true
