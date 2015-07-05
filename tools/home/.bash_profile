@@ -10,6 +10,7 @@ fi
 #################
 export GIT_HOME=$HOME/git
 export HADOOP_HOME=$HOME/opt/hadoop-2.7.0
+export HIVE_HOME=$HOME/opt/apache-hive-1.2.1-bin
 export M2_HOME=$HOME/opt/apache-maven-3.3.3
 
 OS=`uname -s`
@@ -24,8 +25,9 @@ fi
 
 export PATH="$PATH:$HOME/git/stash/hdw/tools/bin"
 export PATH="$PATH:$GIT_HOME/github/ofenton/ofenton/tools/bin"
-export PATH="$PATH:$HADOOP_HOME/bin/"
-export PATH="$PATH:$M2_HOME/bin/"
+export PATH="$PATH:$HADOOP_HOME/bin"
+export PATH="$PATH:$HIVE_HOME/bin"
+export PATH="$PATH:$M2_HOME/bin"
 
 
 ###########
