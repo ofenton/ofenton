@@ -3,7 +3,7 @@
 docker images | awk '
 {
   if ($1=="<none>" && $2=="<none>") { 
-    print "removing unknown docker-image with id "$3; 
+    print "removing unknown docker-image: "$0; 
     system("docker rmi "$3)
   }
 }
