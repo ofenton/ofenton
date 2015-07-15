@@ -22,3 +22,6 @@ target/
 # General
 test-output/
 *.log
+
+# MiniOozie
+build/

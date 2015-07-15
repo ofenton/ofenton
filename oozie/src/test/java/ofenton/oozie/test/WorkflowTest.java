@@ -7,6 +7,8 @@ import org.apache.oozie.client.WorkflowJob;
 import org.apache.oozie.local.LocalOozie;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,9 +23,12 @@ import java.util.Properties;
  * MiniOozie unit test
  */
 public class WorkflowTest extends MiniOozieTestCase {
+    private static final Logger LOG = LoggerFactory.getLogger(WorkflowTest.class);
 
     @Override
     protected void setUp() throws Exception {
+        LOG.info("Setting up test");
+        System.out.println("Setting");
         System.setProperty("oozie.test.metastore.server", "false");
         System.setProperty(XLogService.LOG4J_FILE, "oozie-log4j.properties");
         super.setUp();
