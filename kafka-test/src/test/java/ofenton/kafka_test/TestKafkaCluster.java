@@ -21,7 +21,6 @@ import org.I0Itec.zkclient.ZkClient;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import scala.collection.JavaConversions;
 
 public class TestKafkaCluster {
     private int brokerId = 0;
