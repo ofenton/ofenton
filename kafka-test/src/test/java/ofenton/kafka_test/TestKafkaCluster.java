@@ -6,8 +6,6 @@ import java.util.Properties;
 
 import kafka.admin.AdminUtils;
 import kafka.producer.KeyedMessage;
-import kafka.producer.Producer;
-import kafka.producer.ProducerConfig;
 import kafka.server.KafkaConfig;
 import kafka.server.KafkaServer;
 import kafka.utils.MockTime;
@@ -32,7 +30,7 @@ public class TestKafkaCluster {
     private EmbeddedZookeeper zkServer;
 
     @BeforeTest
-    public void test1() throws Exception {
+    public void setup() throws Exception {
         // setup Zookeeper
         String zkConnect = TestZKUtils.zookeeperConnect();
         zkServer = new EmbeddedZookeeper(zkConnect);
