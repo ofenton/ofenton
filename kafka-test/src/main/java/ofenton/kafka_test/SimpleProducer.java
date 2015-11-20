@@ -16,7 +16,7 @@ public class SimpleProducer implements AutoCloseable {
 
   private final Producer producer;
 
-  SimpleProducer(Properties kafkaConfig) {
+  public SimpleProducer(Properties kafkaConfig) {
     ProducerConfig config = new ProducerConfig(kafkaConfig);
     producer = new Producer(config);
   }
