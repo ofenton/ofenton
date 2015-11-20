@@ -67,7 +67,7 @@ public class TestWordCountConsumer {
   }
 
   @Test
-  public void testWordCount() {
+  public void testWordCount() throws InterruptedException {
     // Given
     String[] lines = {
         "once upon a time",
@@ -78,12 +78,6 @@ public class TestWordCountConsumer {
     Properties properties = TestUtils.getProducerConfig("localhost:" + port, "kafka.producer.DefaultPartitioner");
 
     // When
-    try (SimpleProducer producer = new SimpleProducer(properties)) {
-      for (String line : lines) {
-        KeyedMessage<Integer, String> message = new KeyedMessage(topic, line);
-        producer.send(message);
-      }
-    }
 
 
     // Create Spark consumer
@@ -91,9 +85,28 @@ public class TestWordCountConsumer {
     final int processes = 2;
     final int threadsPerProcess = 2;
     final int memoryPerProcessMb = 2048;
-    String sparkMaster = "local-cluster[" + processes + "," + threadsPerProcess + "," + memoryPerProcessMb + "]";
+    //String sparkMaster = "local-cluster[" + processes + "," + threadsPerProcess + "," + memoryPerProcessMb + "]";
+    String sparkMaster = "local[4]";
     WordCountConsumer consumer = new WordCountConsumer(sparkMaster, "localhost:" + port, topic);
     consumer.start();
+
+
+    for (int i = 0; i < 100; i++) {
+      try (SimpleProducer producer = new SimpleProducer(properties)) {
+        for (String line : lines) {
+          KeyedMessage<Integer, String> message = new KeyedMessage(topic, line);
+          producer.send(message);
+        }
+      }
+      Thread.sleep(1000);
+    }
+
+    try {
+      consumer.interrupt();
+      consumer.join();
+    } catch(InterruptedException e) {
+      e.printStackTrace();
+    }
 
     // Then
     System.out.println("complete");
