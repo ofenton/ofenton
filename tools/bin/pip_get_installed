@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+import pip
+installed_packages = pip.get_installed_distributions()
+for i in installed_packages:
+    print i
