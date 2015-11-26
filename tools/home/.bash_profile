@@ -57,6 +57,11 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
+alias python_lsvirtualenv='lsvirtualenv -b'
+alias python_workon='workon'
+alias python_deactive='deactivate'
+alias python_virtualenv='virtualenv'
+
 ###############
 # Docker      #
 ###############
